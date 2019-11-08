@@ -81,8 +81,8 @@ function getName(obj) {
 */
 function makeSmartPerson(name) {
   let obj = {
-    sum(num1, num2){
-      return `${num1} + ${num2}`;
+    sum: function(num1, num2){
+      return num1 + num2;
     },
     speak(){
       return `Hello, my name is ${obj.name}`
@@ -151,7 +151,8 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+  let car = inventory[index];
+  return `This is a ${car.car_make} ${car.car_model}`
 }
 
 /**
@@ -165,8 +166,9 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(arr) {
+  let car = arr[arr.length -1];
+  return `This is a ${car.car_make} ${car.car_model}`
 }
 
 /**
@@ -181,8 +183,9 @@ function getLastCarInfo(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(arr, num) {
+  let car = arr[num -1];
+  return `This is a ${car.car_make} ${car.car_model}`
 }
 
 /**
