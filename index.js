@@ -217,8 +217,12 @@ function sortCarInventory(arr) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(arr) {
+  let yearArr = [];
+  for (let i = 0; i < arr.length; i++){
+    yearArr.push(arr[i].car_year);
+  }
+  return yearArr;
 }
 
 /**
@@ -233,8 +237,14 @@ function getModelYears(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars(arr, num) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i].car_year <= num){
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
 }
 
 /**
@@ -248,8 +258,21 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(arr) {
+  let euroCars = [];
+  for (let i = 0; i < arr.length; i++){
+    switch(arr[i].car_make){
+      case 'Audi': euroCars.push(arr[i]);
+      break;
+      case 'Mercedes-Benz': euroCars.push(arr[i]);
+      break;
+      case 'Volkswagen': euroCars.push(arr[i]);
+      break;
+      case 'BMW': euroCars.push(arr[i]);
+      break;
+    }
+  } 
+  return euroCars;
 }
 
 /**
@@ -262,6 +285,8 @@ function getGermanCars(/* code here */) {
  *   return a + b
  * }
  * 
+ * 
+ * 
  * const addFive = function(num) {
 *    return num + 5
  * }
@@ -270,9 +295,13 @@ function getGermanCars(/* code here */) {
  *   return num * 2
  * }
 */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+const sum = (a,b) => a + b; // code here!
+
+
+const addFive = num => num + 5; // code here!
+
+
+const argTimesTwo = num => num * 2; // code here!
 
 /**
  * ### Challenge `carMaker`
@@ -287,9 +316,17 @@ const argTimesTwo = null; // code here!
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
-  /* code here */
+function carMaker(num) {
+  let obj = {
+    odometer : num,
+    drive(distance){
+      return this.odometer = this.odometer + distance;
+    }
+  }
+  return obj;
 }
+
+
 
 /// ////// END OF CHALLENGE /////////
 /// ////// END OF CHALLENGE /////////
