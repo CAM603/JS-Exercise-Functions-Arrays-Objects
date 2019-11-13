@@ -40,10 +40,12 @@ function addNumbers(num1, num2) {
  * }
 */
 function makePersonObject(id, name, email) {
-  let obj = {};
-  obj.id = id;
-  obj.name = name;
-  obj.email = email;
+  let obj = {
+    id,name,email
+  };
+  // obj.id = id;
+  // obj.name = name;
+  // obj.email = email;
   return obj;
 }
 
@@ -204,7 +206,7 @@ function sortCarInventory(arr) {
     if (a.car_model > b.car_model){
       return 1
     }
-    return 0;
+      return 0;
   })
 }
 
@@ -239,9 +241,14 @@ function getModelYears(arr) {
 */
 function getOlderCars(arr, num) {
   let newArr = [];
-  for (let i = 0; i < arr.length; i++){
-    if (arr[i].car_year <= num){
-      newArr.push(arr[i]);
+  // for (let i = 0; i < arr.length; i++){
+  //   if (arr[i].car_year <= num){
+  //     newArr.push(arr[i]);
+  //   }
+  // }
+  for (const car of arr) {
+    if (car.car_year <= num) {
+      newArr.push(car);
     }
   }
   return newArr;
@@ -316,9 +323,9 @@ const argTimesTwo = num => num * 2; // code here!
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(num) {
+function carMaker(odometer) {
   let obj = {
-    odometer : num,
+    odometer,
     drive(distance){
       return this.odometer = this.odometer + distance;
     }
